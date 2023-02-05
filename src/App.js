@@ -1,14 +1,15 @@
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from 'components/Header';
-
+import OptionsTab from 'components/OptionsTab';
 import Container from '@mui/material/Container';
-
+import LocationCards from 'components/LocationCards';
 import React from 'react';
 import './App.css';
-
+import Footer from 'components/Footer';
+import FooterMenu from 'components/FooterMenu';
 import { displayOnDesktop } from 'themes/commonStyles';
-import OptionsTab from 'components/OptionsTab';
+import MobileFooter from 'components/MobileFooter';
 
 function App() {
   return (
@@ -35,15 +36,22 @@ function App() {
           }}
         >
           <Container maxWidth='xl' sx={{ mb: 3 }}>
+            <LocationCards />
             <Box
               sx={{
                 display: { xs: 'flex', md: 'none' },
               }}
-            ></Box>
+            >
+              <MobileFooter />
+            </Box>
           </Container>
         </Box>
-        <Box sx={{ display: { xs: 'flex', md: 'none' } }}></Box>
-        <Box sx={displayOnDesktop}></Box>
+        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <FooterMenu />
+        </Box>
+        <Box sx={displayOnDesktop}>
+          <Footer />
+        </Box>
       </Box>
     </React.Fragment>
   );
